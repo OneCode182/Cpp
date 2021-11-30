@@ -6,7 +6,7 @@
 
 using namespace std;
 
-
+/*
 bool isNumber(const string& str) {
 	for (char const &c : str) {
 		if (std::isdigit(c) == 0) {
@@ -15,6 +15,7 @@ bool isNumber(const string& str) {
 	} return true;
 	
 }
+*/
 
 string descuento2(int consumo) {
 	string msj = "0% de DESCUENTO | -";
@@ -69,25 +70,19 @@ int main() {
 	cin>> rta;
 	
 	
-	if (isNumber(rta)) {
-		// CODIGO
-		int rta2 = atoi(rta.c_str());
+	
+	// CODIGO
+	int rta2 = atoi(rta.c_str());
+
+	float descuento_a = descuento(rta2);
+	string descuento2_a = descuento2(rta2);
+	float impuesto_a = iva(rta2);
+
+
+	cout<<"DESCUENTO: " + descuento2_a + to_string(descuento_a);
+	cout<<"\nIMPUESTO: 12% IVA | +" + to_string(impuesto_a);
+	cout<<"\nIMPORTE A PAGAR: " + importe_a_pagar(rta2, descuento_a, impuesto_a)<<endl;
 		
-		float descuento_a = descuento(rta2);
-		string descuento2_a = descuento2(rta2);
-		float impuesto_a = iva(rta2);
-		
-		
-		cout<<"DESCUENTO: " + descuento2_a + to_string(descuento_a);
-		cout<<"\nIMPUESTO: 12% IVA | +" + to_string(impuesto_a);
-		cout<<"\nIMPORTE A PAGAR: " + importe_a_pagar(rta2, descuento_a, impuesto_a)<<endl;
-		
-		
-		
-	} else {
-		cout<<"INTRODUCE UN NUMERO !";
-		
-	}
 	
 	return 0;
 }
